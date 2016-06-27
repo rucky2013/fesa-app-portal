@@ -8,6 +8,7 @@
 	<name>fesa-app-portal Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
 		<springversion>3.1.2.RELEASE</springversion>
 		<strutsversion>2.3.16.3</strutsversion>
 	</properties>
