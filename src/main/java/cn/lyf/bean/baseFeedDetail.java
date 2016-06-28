@@ -1,11 +1,13 @@
 package cn.lyf.bean;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,7 @@ public class baseFeedDetail implements java.io.Serializable{
 	private static final long serialVersionUID = 8277280175999923286L;
 	private Integer Id;
 	private String speciesId;
-	private baseFeed feedId;
+	private Integer feedId;
 	private String title;
 	private String author;
 	private String link;
@@ -31,7 +33,7 @@ public class baseFeedDetail implements java.io.Serializable{
 	public baseFeedDetail(){}
 	
 	@Id
-	@GeneratedValue(generator = "generator")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "Id", unique = true, nullable = false)
 	public Integer getId() {
 		return Id;
@@ -47,10 +49,10 @@ public class baseFeedDetail implements java.io.Serializable{
 		this.speciesId = speciesId;
 	}
 	@Column(name = "feedId")
-	public baseFeed getFeedId() {
+	public Integer getFeedId() {
 		return feedId;
 	}
-	public void setFeedId(baseFeed feedId) {
+	public void setFeedId(Integer feedId) {
 		this.feedId = feedId;
 	}
 	@Column(name = "title", length = 500)

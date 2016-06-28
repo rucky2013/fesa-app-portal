@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -28,7 +29,7 @@ public class userRead implements java.io.Serializable {
 	public userRead(){}
 
 	@Id
-	@GeneratedValue(generator = "generator")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "Id", unique = true, nullable = false)
 	public Integer getId() {
 		return Id;
@@ -46,7 +47,7 @@ public class userRead implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	@Column(name = "userId",length=100)
+	@Column(name = "speciesId",length=100)
 	public String getSpeciesId() {
 		return speciesId;
 	}

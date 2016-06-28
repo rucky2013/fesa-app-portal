@@ -3,22 +3,18 @@ package cn.lyf.service.impl;
 import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Resource;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.stereotype.Service;
 import cn.feisa.tools.encryptionAnddecryption;
 import cn.lyf.bean.userInfo;
 import cn.lyf.service.userInfoService;
 
-@Transactional
+@Service
 public class userInfoServiceBean implements userInfoService {
 	@Autowired
 	private SessionFactory sessionFactory;

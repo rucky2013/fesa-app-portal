@@ -1,5 +1,6 @@
 package cn.lyf.bean;
 
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,10 +21,11 @@ public class baseFeed implements java.io.Serializable {
 	private Boolean feedStatus;
 	private Integer feedCount;
 	private String feedRemark;
+	
 	public baseFeed(){}
 	
 	@Id
-	@GeneratedValue(generator = "generator")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "Id", unique = true, nullable = false)
 	public Integer getId() {
 		return Id;

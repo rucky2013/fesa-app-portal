@@ -1,10 +1,8 @@
 package cn.lyf.service;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
 import cn.lyf.bean.recommendSpecies;
 
-@Service
 public interface recommendSpeciesService {
 
 	public void Save(recommendSpecies recommend);

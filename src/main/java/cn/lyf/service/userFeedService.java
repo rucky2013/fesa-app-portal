@@ -2,12 +2,8 @@ package cn.lyf.service;
 
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.stereotype.Service;
-
 import cn.lyf.bean.userFeed;
 
-@Service
 public interface userFeedService {
     Boolean addUserFeed(userFeed userfed);  
     Boolean removeUserFeed(userFeed userfed);

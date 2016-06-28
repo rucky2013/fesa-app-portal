@@ -1,21 +1,14 @@
 package cn.lyf.service.impl;
 
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-
-import cn.lyf.bean.baseFeed;
+import org.springframework.stereotype.Service;
 import cn.lyf.bean.recommendDetail;
-import cn.lyf.bean.recommendSpecies;
 import cn.lyf.service.recommendDetailService;
-import cn.lyf.service.recommendSpeciesService;
 
-@Transactional
+@Service
 public class recommendDetailServiceBean implements recommendDetailService {
 	@Autowired 
 	private SessionFactory sessionFactory;

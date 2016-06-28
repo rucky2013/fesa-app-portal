@@ -9,12 +9,13 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyf.bean.userFeed;
 import cn.lyf.service.userFeedService;
 
-@Transactional
+@Service
 public class userFeedServiceBean implements userFeedService {
 	@Autowired 
 	private SessionFactory sessionFactory;

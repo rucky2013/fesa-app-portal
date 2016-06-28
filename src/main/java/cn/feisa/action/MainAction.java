@@ -3,30 +3,26 @@ package cn.feisa.action;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import net.sf.json.JSONObject;
-
-import com.opensymphony.xwork2.Action;
-
 import cn.lyf.bean.baseFeedDetail;
 import cn.lyf.bean.recommendDetail;
 import cn.lyf.bean.recommendSpecies;
 import cn.lyf.service.recommendDetailService;
 import cn.lyf.service.recommendSpeciesService;
 import cn.lyf.service.userReadService;
+import com.opensymphony.xwork2.Action;
 
 public class MainAction {
 
 	private int pageindex;
 	private Map<String, Object> jsonRoot = new HashMap<String, Object>();
-	@Resource
+	@Autowired
 	private userReadService userredService;
 	private List<baseFeedDetail> mostfile;//最多的文章
-	@Resource
+	@Autowired
 	private recommendSpeciesService recommService;
-	@Resource
+	@Autowired
 	private recommendDetailService detailService;
 	private List<recommendSpecies> recommends;//推荐
 	private List<recommendDetail> recommendchilds;//推荐的详细站点
@@ -39,6 +35,7 @@ public class MainAction {
 	public String execute(){
 		pageindex=0;
 		mostfile=userredService.getmostReads(pageindex);
+		System.out.println("123");
 		recommends=recommService.getrecommends();
 		return "success";
 	}

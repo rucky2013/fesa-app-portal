@@ -1,10 +1,8 @@
 package cn.lyf.service;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
 import cn.lyf.bean.recommendDetail;
 
-@Service
 public interface recommendDetailService {
 
 	public void Save(recommendDetail recommend);

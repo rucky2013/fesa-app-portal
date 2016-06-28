@@ -8,13 +8,14 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.lyf.bean.baseFeed;
 import cn.lyf.bean.baseFeedDetail;
 import cn.lyf.service.feedDetailService;
 
-@Transactional
+@Service
 public class feedDetailServiceBean implements feedDetailService {
 	@Autowired
 	private SessionFactory sessionFactory;

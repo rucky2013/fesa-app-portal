@@ -3,6 +3,7 @@ package cn.lyf.bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,7 +19,7 @@ public class recommendSpecies implements java.io.Serializable{
 	private String remark;
 
 	@Id
-	@GeneratedValue(generator = "generator")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "Id", unique = true, nullable = false)
 	public Integer getId() {
 		return Id;

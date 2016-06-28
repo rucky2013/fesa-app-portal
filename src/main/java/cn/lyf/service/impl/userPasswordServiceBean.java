@@ -10,11 +10,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import cn.lyf.bean.userPassword;
 import cn.lyf.service.userPasswordService;
 
-@Transactional
+@Service
 public class userPasswordServiceBean implements userPasswordService {
 	@Autowired
 	private SessionFactory sessionFactory;

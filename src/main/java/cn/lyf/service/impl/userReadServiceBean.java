@@ -1,16 +1,16 @@
 package cn.lyf.service.impl;
 
 import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.stereotype.Service;
 import cn.lyf.bean.baseFeedDetail;
 import cn.lyf.bean.userRead;
 import cn.lyf.service.userReadService;
 
-@Transactional
+@Service
 public class userReadServiceBean implements userReadService {
 	@Autowired
 	private SessionFactory sessionFactory;
