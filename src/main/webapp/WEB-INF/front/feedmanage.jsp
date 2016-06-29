@@ -1,4 +1,4 @@
-<%@page import="cn.lyf.bean.userInfo"%>
+<%@page import="com.fs.app.portal.pojo.UserInfoPojo"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();

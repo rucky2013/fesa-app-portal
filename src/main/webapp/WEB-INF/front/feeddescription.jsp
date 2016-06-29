@@ -1,5 +1,5 @@
-<%@page import="cn.lyf.bean.userFeed"%>
-<%@page import="cn.lyf.bean.baseFeed"%>
+<%@page import="com.fs.app.portal.pojo.UserFeedPojo"%>
+<%@page import="com.fs.app.portal.pojo.BaseFeedPojo"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();

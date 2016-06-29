@@ -1,11 +1,11 @@
-<%@page import="cn.lyf.bean.userInfo"%>
+<%@page import="com.fs.app.portal.pojo.UserInfoPojo"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-	userInfo user_temp = (userInfo) session.getValue("user");
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
+	UserInfoPojo user_temp = (UserInfoPojo) session.getValue("user");
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>

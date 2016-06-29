@@ -11,7 +11,7 @@
 
 	<function>
 		<name>getImageurl</name>
-		<function-class>cn.feisa.tools.myJSTLFunction</function-class>
+		<function-class>com.fs.app.portal.utils.myJSTLFunction</function-class>
 		<function-signature>
 		    java.lang.String getImageurl(java.lang.String)
 		</function-signature>

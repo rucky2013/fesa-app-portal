@@ -1,11 +1,11 @@
-<%@page import="cn.lyf.bean.userInfo"%>
+<%@page import="com.fs.app.portal.pojo.UserInfoPojo"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-	userInfo user_info = (userInfo) session.getValue("user");
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
+	UserInfoPojo user_info = (UserInfoPojo) session.getValue("user");
 %>
 <!DOCTYPE html>
 <div id="nav_top" class="navbar navbar-static-top" role="navigation"
