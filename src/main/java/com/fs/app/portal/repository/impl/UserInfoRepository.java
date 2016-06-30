@@ -3,21 +3,20 @@ package com.fs.app.portal.repository.impl;
 import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import com.fs.app.portal.pojo.UserInfoPojo;
 import com.fs.app.portal.repository.IUserInfoRepository;
 import com.fs.app.portal.utils.encryptionAnddecryption;
 
-@Service
+@Repository
+@Transactional
 public class UserInfoRepository implements IUserInfoRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -43,7 +42,7 @@ public class UserInfoRepository implements IUserInfoRepository {
 			Query hquery = sessionFactory
 					.getCurrentSession()
 					.createQuery(
-							"from userInfo uinfo where uinfo.userName=:uname");
+							"from UserInfoPojo uinfo where uinfo.userName=:uname");
 			hquery.setString("uname", name);
 			List<UserInfoPojo> list = hquery.list();
 			if (list != null && list.size()>0){
@@ -77,7 +76,7 @@ public class UserInfoRepository implements IUserInfoRepository {
 			Query hquery = sessionFactory
 					.getCurrentSession()
 					.createQuery(
-							"from userInfo uinfo where uinfo.userName=:uname");
+							"from UserInfoPojo uinfo where uinfo.userName=:uname");
 			hquery.setString("uname", name);
 			List<UserInfoPojo> list = hquery.list();
 			if (list != null && list.size()>0){
@@ -101,7 +100,7 @@ public class UserInfoRepository implements IUserInfoRepository {
 	public UserInfoPojo getUserEmail(String email) {
 		try {
 			Query hquery = sessionFactory.getCurrentSession().createQuery(
-					"from userInfo uinfo where uinfo.userEmail=:email");
+					"from UserInfoPojo uinfo where uinfo.userEmail=:email");
 			hquery.setString("email", email);
 			List<UserInfoPojo> list = hquery.list();
 			if (list != null && list.size() == 1)
@@ -118,12 +117,11 @@ public class UserInfoRepository implements IUserInfoRepository {
 	public Boolean changePassword(int uid, String newpwd) {
 		try {
 			Query hquery = sessionFactory.getCurrentSession().createQuery(
-					"from userInfo uinfo where uinfo.Id=:uid");
+					"from UserInfoPojo uinfo where uinfo.id=:uid");
 			hquery.setInteger("uid", uid);
 			List<UserInfoPojo> list_users = (List<UserInfoPojo>)hquery.list();
 			if (list_users != null && list_users.size() > 0) {
                UserInfoPojo temp_user=list_users.get(0);
-               
                encryptionAnddecryption jiami = new encryptionAnddecryption();
    			   SecretKey key = jiami.createSecretKey("DES");
    			   String str_password = jiami.encryptToDES(key, newpwd);

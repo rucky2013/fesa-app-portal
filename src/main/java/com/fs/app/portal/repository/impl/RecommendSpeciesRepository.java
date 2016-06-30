@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fs.app.portal.pojo.RecommendSpeciesPojo;
 import com.fs.app.portal.repository.IRecommendSpeciesRepository;
 
-@Service
+@Repository
+@Transactional
 public class RecommendSpeciesRepository implements IRecommendSpeciesRepository {
 	@Autowired 
 	private SessionFactory sessionFactory;

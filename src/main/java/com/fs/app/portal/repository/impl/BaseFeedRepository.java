@@ -1,18 +1,17 @@
 package com.fs.app.portal.repository.impl;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.fs.app.portal.pojo.BaseFeedPojo;
 import com.fs.app.portal.repository.IBaseFeedRepository;
 
-@Service
+@Repository
+@Transactional
 public class BaseFeedRepository implements IBaseFeedRepository {
 	
 	@Autowired

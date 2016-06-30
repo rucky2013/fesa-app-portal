@@ -86,14 +86,17 @@
 	function sendmail() {
 		$.ajax({
 			type : 'post',
-			url : 'sendEmail',
+			url : 'user/findpwd',
 			datatype : 'json',
-			data : 'tomail=' + $("#InputEmail").val(),
-			success : function(data) {
-				if (eval("(" + data + ")").SentResult) {
-					//alert("邮件已发送");
-				} else {
-					alert("邮件已发送");
+			data : {
+				tomail : $("#InputEmail").val()
+			},
+			success : function(res) {
+				alert(res.message);
+				if (res.datas) {
+					window.location.href = "main";
+				}else{
+					alert(res.message);
 				}
 			}
 		});
@@ -101,11 +104,11 @@
 	function exitmail() {
 		$.ajax({
 			type : 'post',
-			url : 'existemail',
+			url : 'user/existemail',
 			datatype : 'json',
 			data : 'email=' + $("#InputEmail").val(),
-			success : function(data) {
-				if (eval("(" + data + ")").existResult) {
+			success : function(res) {
+				if (res.datas) {
 					btnmissing();
 				} else {
 					alert("邮件不存在，请重新填写！");

@@ -128,9 +128,13 @@ body{
 		}
 		$.ajax({
 			type : 'post',
-			url : 'loginNew?username=' + userName + '&password=' + userPass,
-			success : function(data) {
-				if (eval("(" + data + ")").logeResult){
+			url : 'user/login',
+			data:{
+				username:userName,
+				password:userPass
+			},
+			success : function(res) {
+				if (res.datas){
 					changestatus("1",userName);
 					window.location.href = "main";
 				}
@@ -143,15 +147,15 @@ body{
 		window.location.href = "register";
 	}
 	function btnReset0() {
-		window.location.href = "missingPwd";
+		window.location.href = "missingpwd";
 	}
 	function loginout() {
 		$.ajax({
 			type : 'post',
-			url : 'loginOut',
+			url : 'user/logout',
 			datatype : 'json',
-			success : function(datas) {
-				if (eval("(" + datas + ")").loginoutResult) {
+			success : function(res) {
+				if (res.datas) {
 					changestatus("0","用户");
 					window.location.href = "main";
 				} else {

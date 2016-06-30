@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +16,8 @@ import com.fs.app.portal.pojo.BaseFeedDetailPojo;
 import com.fs.app.portal.pojo.BaseFeedPojo;
 import com.fs.app.portal.repository.IFeedDetailRepository;
 
-@Service
+@Repository
+@Transactional
 public class FeedDetailRepository implements IFeedDetailRepository {
 	@Autowired
 	private SessionFactory sessionFactory;

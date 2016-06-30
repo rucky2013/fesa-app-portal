@@ -137,20 +137,23 @@
 		}
 		$.ajax({
 			type : 'post',
-			url : 'existemail',
+			url : 'user/existemail',
 			datatype : 'json',
 			data : 'email=' + $('#InputEmail').val(),
-			success : function(datas) {
-				if (!eval("(" + datas + ")").existResult) {
-					result=true;
+			success : function(res) {
+				if (!res.datas) {
 					$.ajax({
 						type : 'post',
-						url : 'registerinfo',
+						url : 'user/register',
 						datatype : 'json',
-						data : 'username=' + userName + '&password=' + userPass
-								+ '&email=' + useremail+'&phone='+userphone,
-						success : function(datas) {
-							if (eval("(" + datas + ")").registerResult) {
+						data : {
+							username: userName,
+							password:userPass,
+							email:useremail,
+							phone:userphone
+						},
+						success : function(resu) {
+							if (resu.datas) {
 								window.location.href = "./main";
 							} else
 								alert("注册失败");

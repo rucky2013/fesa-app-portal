@@ -2,21 +2,18 @@ package com.fs.app.portal.repository.impl;
 
 import java.util.Date;
 import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.fs.app.portal.pojo.UserPasswordPojo;
 import com.fs.app.portal.repository.IUserPasswordRepository;
 
-@Service
+@Repository
+@Transactional
 public class UserPasswordRepository implements IUserPasswordRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -35,7 +32,7 @@ public class UserPasswordRepository implements IUserPasswordRepository {
 	@Override
 	public UserPasswordPojo getUserPassword(String mail) {
 		Query hquery = sessionFactory.getCurrentSession().createQuery(
-				"from userPassword pwd where pwd.userMail=:mail");
+				"from UserPasswordPojo pwd where pwd.userMail=:mail");
 		hquery.setString("mail", mail);
 		List<UserPasswordPojo> list_pwds = (List<UserPasswordPojo>) hquery.list();
 		if (list_pwds != null && list_pwds.size() > 0)
@@ -48,7 +45,7 @@ public class UserPasswordRepository implements IUserPasswordRepository {
 	@Override
 	public UserPasswordPojo getUserPasswordByUrl(String sendurl) {
 		Query hquery = sessionFactory.getCurrentSession().createQuery(
-				"from userPassword pwd where pwd.mark=:mark and pwd.status=1");
+				"from UserPasswordPojo pwd where pwd.mark=:mark and pwd.status=1");
 		hquery.setString("mark", sendurl);
 		List<UserPasswordPojo> list_pwds = (List<UserPasswordPojo>) hquery.list();
 		if (list_pwds != null && list_pwds.size() > 0)
@@ -65,7 +62,7 @@ public class UserPasswordRepository implements IUserPasswordRepository {
 		// hquery.setInteger("uid", uid);
 		Session session = sessionFactory.openSession();
 		Query hquery = session
-				.createQuery("from userPassword pwd where pwd.userId=:uid and pwd.status=1");
+				.createQuery("from UserPasswordPojo pwd where pwd.userId=:uid and pwd.status=1");
 		hquery.setInteger("uid", uid);
 		List<UserPasswordPojo> list_pwds = (List<UserPasswordPojo>) hquery.list();
 		Transaction tx = session.beginTransaction();

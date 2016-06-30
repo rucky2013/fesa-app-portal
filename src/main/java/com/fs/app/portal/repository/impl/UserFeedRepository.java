@@ -9,13 +9,15 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fs.app.portal.pojo.UserFeedPojo;
 import com.fs.app.portal.repository.IUserFeedRepository;
 
-@Service
+@Repository
+@Transactional
 public class UserFeedRepository implements IUserFeedRepository {
 	@Autowired 
 	private SessionFactory sessionFactory;

@@ -1,14 +1,23 @@
 package com.fs.app.portal.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import com.fs.app.portal.entity.RenderData;
+import com.fs.app.portal.service.IUserService;
 
 @Controller
 public class HomeHandlers extends BaseHandlers{
 
+	@Autowired
+	private IUserService userService;
+	
 	@RequestMapping(value="/main",method=RequestMethod.GET)
 	public String homepage(HttpServletRequest request, HttpServletResponse response){
 		return "/front/main";
@@ -67,13 +76,19 @@ public class HomeHandlers extends BaseHandlers{
 	}
 	
 	@RequestMapping(value="/resetpwd",method=RequestMethod.GET)
-	public String resetpwd(HttpServletRequest request, HttpServletResponse response){
-		return "/front/resetpwd";
-	}
-	
-	@RequestMapping(value="/error",method=RequestMethod.GET)
-	public String error(HttpServletRequest request, HttpServletResponse response){
-		return "/front/error";
+	public ModelAndView resetpwd(HttpServletRequest request, HttpServletResponse response){
+		String para_m=request.getParameter("m").toString();
+		String para_u=request.getParameter("u").toString();
+		RenderData rendata= userService.verifyExpired(para_m,para_u);
+		Map<String,Object> data = new HashMap<String,Object>();
+		if(Boolean.valueOf(rendata.getDatas().toString())){
+			data.put("m", para_m);
+			data.put("u", para_u);
+			return new ModelAndView("/front/resetpwd", data);
+		}else{
+			data.put("message", rendata.getMessage());
+			return new ModelAndView("/front/error", data);
+		}
 	}
 	
 	//后台配置

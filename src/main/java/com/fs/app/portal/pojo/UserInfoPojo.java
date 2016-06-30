@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class UserInfoPojo implements java.io.Serializable{
 	
 	private static final long serialVersionUID = 6380760753913021388L;
-	private Integer Id;
+	private Integer id;
 	private String userName;
 	private String userPassword;
 	private String userEmail;
@@ -29,12 +29,12 @@ public class UserInfoPojo implements java.io.Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "Id", unique = true, nullable = false)
+	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 	public void setId(Integer id) {
-		this.Id = id;
+		this.id = id;
 	}
 	@Column(name = "userName", length = 500)
 	public String getUserName() {

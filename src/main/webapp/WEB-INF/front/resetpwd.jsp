@@ -91,12 +91,11 @@
 		if ($("#InputPassword").val() == $("#InputConfiPassword").val()) {
 			$.ajax({
 				type : 'post',
-				url : 'changePwd',
+				url : 'user/changepwd',
 				datatype : 'json',
-				data : 'm=' + mail + "&u=" + uid + "&newPwd="
-						+ $("#InputPassword").val(),
-				success : function(data) {
-					if (eval("(" + data + ")").chaneResult) {
+				data : 'm=' + mail + "&u=" + uid + "&newPwd="+ $("#InputPassword").val(),
+				success : function(res) {
+					if (res.datas) {
 						alert("修改成功,请登录！");
 						window.location.href = "person";
 					} else {
