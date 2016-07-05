@@ -10,13 +10,11 @@ import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import com.fs.app.portal.pojo.UserInfoPojo;
 import com.fs.app.portal.repository.IUserInfoRepository;
 import com.fs.app.portal.utils.encryptionAnddecryption;
 
 @Repository
-@Transactional
 public class UserInfoRepository implements IUserInfoRepository {
 	@Autowired
 	private SessionFactory sessionFactory;

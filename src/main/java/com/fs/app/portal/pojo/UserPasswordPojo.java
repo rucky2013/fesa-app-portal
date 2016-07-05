@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "userPassword", schema = "public")
+@Table(name = "userPassword")
 public class UserPasswordPojo implements java.io.Serializable{
 	
 	private static final long serialVersionUID = 2176965408058037431L;

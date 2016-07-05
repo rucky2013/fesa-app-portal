@@ -17,7 +17,6 @@ import com.fs.app.portal.pojo.UserFeedPojo;
 import com.fs.app.portal.repository.IUserFeedRepository;
 
 @Repository
-@Transactional
 public class UserFeedRepository implements IUserFeedRepository {
 	@Autowired 
 	private SessionFactory sessionFactory;

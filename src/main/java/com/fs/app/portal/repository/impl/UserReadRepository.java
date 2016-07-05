@@ -14,7 +14,6 @@ import com.fs.app.portal.pojo.UserReadPojo;
 import com.fs.app.portal.repository.IUserReadRepository;
 
 @Repository
-@Transactional
 public class UserReadRepository implements IUserReadRepository {
 	@Autowired
 	private SessionFactory sessionFactory;

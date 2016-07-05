@@ -11,7 +11,6 @@ import com.fs.app.portal.pojo.BaseFeedPojo;
 import com.fs.app.portal.repository.IBaseFeedRepository;
 
 @Repository
-@Transactional
 public class BaseFeedRepository implements IBaseFeedRepository {
 	
 	@Autowired

@@ -2,8 +2,11 @@ package com.fs.app.portal.repository;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fs.app.portal.pojo.RecommendDetailPojo;
 
+@Transactional
 public interface IRecommendDetailRepository {
 
 	public void Save(RecommendDetailPojo recommend);

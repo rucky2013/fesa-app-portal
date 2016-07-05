@@ -20,12 +20,13 @@ public class UserApiHandlers extends BaseHandlers{
 	private IUserService userService;
 	
 	@ResponseBody
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public void login(HttpServletRequest request, HttpServletResponse response) {
-		String username=request.getParameter("username").toString();
-		String password=request.getParameter("password").toString();
-		UserInfoPojo userinfo= userService.Login(username, password);
-		RenderData result=new RenderData((userinfo==null?false:true));
+		Object username=request.getParameter("username");
+		Object password=request.getParameter("password");
+		ValidParam(response,username,password);
+		UserInfoPojo userinfo= userService.Login(username.toString(), password.toString());
+		RenderData result=new RenderData(userinfo);
 		WriteJson(response,result);
 	}
 }
