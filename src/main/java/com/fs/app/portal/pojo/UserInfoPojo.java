@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "userInfo")
+@Table(name = "portal_userInfo")
 public class UserInfoPojo implements java.io.Serializable{
 	
 	private static final long serialVersionUID = 6380760753913021388L;

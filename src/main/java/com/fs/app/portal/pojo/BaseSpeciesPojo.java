@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "baseSpecies")
+@Table(name = "portal_baseSpecies")
 public class BaseSpeciesPojo {
 	private Integer Id;
 	private String speciesName;

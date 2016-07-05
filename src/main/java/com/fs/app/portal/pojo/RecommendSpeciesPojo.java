@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "recommendSpecies")
+@Table(name = "portal_recommendSpecies")
 public class RecommendSpeciesPojo implements java.io.Serializable{
 
 	private static final long serialVersionUID = 119258490817070298L;

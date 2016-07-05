@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "recommendDetail")
+@Table(name = "portal_recommendDetail")
 public class RecommendDetailPojo {
 	
 	private Integer Id;
