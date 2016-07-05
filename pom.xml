@@ -68,6 +68,11 @@
 			<version>1.4</version>
 		</dependency>
 		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.21</version>
@@ -203,11 +208,13 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernateversion}</version>
 		</dependency>
+		<!-- org.springframework.orm.hibernate4.LocalSessionFactoryBean是直接支持annotation的所以你不需要导入hibernate.annotation.jar包 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 			<version>3.5.6-Final</version>
 		</dependency>
+		-->
 	</dependencies>
 	<build>
 		<finalName>fesa-app-portal</finalName>
