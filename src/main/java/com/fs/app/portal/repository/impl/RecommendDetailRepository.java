@@ -13,6 +13,7 @@ import com.fs.app.portal.pojo.RecommendDetailPojo;
 import com.fs.app.portal.repository.IRecommendDetailRepository;
 
 @Repository
+@Transactional
 public class RecommendDetailRepository implements IRecommendDetailRepository {
 	@Autowired 
 	private SessionFactory sessionFactory;

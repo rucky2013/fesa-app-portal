@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fs.app.portal.pojo.BaseSpeciesPojo;
 
-@Transactional
 public interface IBaseSpeciesRepository {
 
 	public void save(BaseSpeciesPojo basespecies);

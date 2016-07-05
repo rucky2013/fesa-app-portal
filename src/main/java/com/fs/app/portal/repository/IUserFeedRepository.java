@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fs.app.portal.pojo.UserFeedPojo;
 
-@Transactional
 public interface IUserFeedRepository {
     Boolean addUserFeed(UserFeedPojo userfed);  
     Boolean removeUserFeed(UserFeedPojo userfed);

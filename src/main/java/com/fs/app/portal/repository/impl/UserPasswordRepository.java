@@ -13,6 +13,7 @@ import com.fs.app.portal.pojo.UserPasswordPojo;
 import com.fs.app.portal.repository.IUserPasswordRepository;
 
 @Repository
+@Transactional
 public class UserPasswordRepository implements IUserPasswordRepository {
 	@Autowired
 	private SessionFactory sessionFactory;

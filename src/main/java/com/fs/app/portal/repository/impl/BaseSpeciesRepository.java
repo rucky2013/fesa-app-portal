@@ -14,6 +14,7 @@ import com.fs.app.portal.pojo.BaseSpeciesPojo;
 import com.fs.app.portal.repository.IBaseSpeciesRepository;
 
 @Repository
+@Transactional
 public class BaseSpeciesRepository implements IBaseSpeciesRepository {
 	@Autowired 
 	private SessionFactory sessionFactory;

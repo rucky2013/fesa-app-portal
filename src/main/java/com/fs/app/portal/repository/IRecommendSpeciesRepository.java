@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fs.app.portal.pojo.RecommendSpeciesPojo;
 
-@Transactional
 public interface IRecommendSpeciesRepository {
 
 	public void Save(RecommendSpeciesPojo recommend);

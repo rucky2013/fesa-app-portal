@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fs.app.portal.pojo.BaseFeedDetailPojo;
 import com.fs.app.portal.pojo.UserReadPojo;
 
-@Transactional
 public interface IUserReadRepository {
 	Boolean addUserRead(UserReadPojo userred);  
 	Boolean removeUserRead(UserReadPojo userred);

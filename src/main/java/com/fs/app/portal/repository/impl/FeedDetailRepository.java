@@ -17,6 +17,7 @@ import com.fs.app.portal.pojo.BaseFeedPojo;
 import com.fs.app.portal.repository.IFeedDetailRepository;
 
 @Repository
+@Transactional
 public class FeedDetailRepository implements IFeedDetailRepository {
 	@Autowired
 	private SessionFactory sessionFactory;

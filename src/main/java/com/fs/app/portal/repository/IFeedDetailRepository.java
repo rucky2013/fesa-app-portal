@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fs.app.portal.pojo.BaseFeedDetailPojo;
 
-@Transactional
 public interface IFeedDetailRepository {
 
 	public void save(BaseFeedDetailPojo feedDetail);

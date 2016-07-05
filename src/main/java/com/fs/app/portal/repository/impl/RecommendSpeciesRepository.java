@@ -12,6 +12,7 @@ import com.fs.app.portal.pojo.RecommendSpeciesPojo;
 import com.fs.app.portal.repository.IRecommendSpeciesRepository;
 
 @Repository
+@Transactional
 public class RecommendSpeciesRepository implements IRecommendSpeciesRepository {
 	@Autowired 
 	private SessionFactory sessionFactory;
