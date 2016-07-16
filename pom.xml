@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.fesa</groupId>
+	<groupId>com.fs</groupId>
 	<artifactId>fesa-app-portal</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
@@ -9,8 +9,9 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springversion>4.3.0.RELEASE</springversion>
-		<hibernateversion>5.0.9.Final</hibernateversion>
+		<springversion>4.0.9.RELEASE</springversion>
+		<springsecurityversion>3.2.5.RELEASE</springsecurityversion>
+		<hibernateversion>4.2.16.Final</hibernateversion>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -67,6 +68,11 @@
 			<version>1.4</version>
 		</dependency>
 		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.21</version>
@@ -93,7 +99,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springversion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
+			<version>${springversion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
 			<version>${springversion}</version>
 		</dependency>
 		<dependency>
@@ -156,6 +172,27 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springversion}</version>
 		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${springsecurityversion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurityversion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurityversion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -169,13 +206,15 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.1.0.Final</version>
+			<version>${hibernateversion}</version>
 		</dependency>
+		<!-- org.springframework.orm.hibernate4.LocalSessionFactoryBean是直接支持annotation的所以你不需要导入hibernate.annotation.jar包 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 			<version>3.5.6-Final</version>
 		</dependency>
+		-->
 	</dependencies>
 	<build>
 		<finalName>fesa-app-portal</finalName>

@@ -1,5 +1,7 @@
 package com.fs.app.portal.repository;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fs.app.portal.pojo.UserPasswordPojo;
 
 public interface IUserPasswordRepository {

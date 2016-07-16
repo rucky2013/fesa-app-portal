@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "baseFeed", schema = "public")
+@Table(name = "portal_baseFeed")
 public class BaseFeedPojo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 2384402481040629426L;

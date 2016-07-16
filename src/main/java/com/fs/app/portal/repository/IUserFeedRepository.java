@@ -3,6 +3,8 @@ package com.fs.app.portal.repository;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fs.app.portal.pojo.UserFeedPojo;
 
 public interface IUserFeedRepository {

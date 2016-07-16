@@ -2,6 +2,8 @@ package com.fs.app.portal.repository;
 
 import java.util.*;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fs.app.portal.pojo.UserInfoPojo;
 
 public interface IUserInfoRepository {

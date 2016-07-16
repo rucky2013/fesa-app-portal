@@ -1,14 +1,11 @@
 package com.fs.app.portal.repository.impl;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.fs.app.portal.pojo.BaseFeedDetailPojo;
 import com.fs.app.portal.pojo.UserReadPojo;
 import com.fs.app.portal.repository.IUserReadRepository;
