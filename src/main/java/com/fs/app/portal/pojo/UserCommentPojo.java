@@ -10,18 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "portal_userFeed")
-public class UserFeedPojo implements java.io.Serializable {
+@Table(name = "portal_userComment")
+public class UserCommentPojo implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 1218362413947828627L;
 	private Integer Id;
 	private Integer userId;
-	private String speciesId;
-	private BaseFeedPojo feedId;
+	private Integer newsId;
+	private String commentInfo;
+	private Integer status;
 	private Date addTime;
-	private String remark; 
 	
-	public UserFeedPojo(){}
+	public UserCommentPojo(){}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -42,23 +42,31 @@ public class UserFeedPojo implements java.io.Serializable {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-
-	@Column(name = "speciesId", length = 500)
-	public String getSpeciesId() {
-		return speciesId;
+	@Column(name = "newsId")
+	public Integer getNewsId() {
+		return newsId;
 	}
 
-	public void setSpeciesId(String speciesId) {
-		this.speciesId = speciesId;
+	public void setNewsId(Integer newsId) {
+		this.newsId = newsId;
 	}
-	@Column(name = "feedId")
-	public BaseFeedPojo getFeedId() {
-		return feedId;
+	@Column(name = "commentInfo",length=5000)
+	public String getCommentInfo() {
+		return commentInfo;
 	}
 
-	public void setFeedId(BaseFeedPojo feedId) {
-		this.feedId = feedId;
+	public void setCommentInfo(String commentInfo) {
+		this.commentInfo = commentInfo;
 	}
+	@Column(name = "status")
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
 	@Column(name = "addTime")
 	public Date getAddTime() {
 		return addTime;
@@ -67,13 +75,4 @@ public class UserFeedPojo implements java.io.Serializable {
 	public void setAddTime(Date addTime) {
 		this.addTime = addTime;
 	}
-	@Column(name = "remark", length = 500)
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-	
 }
