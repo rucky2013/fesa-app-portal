@@ -22,9 +22,14 @@ public class UserHandlers extends BaseHandlers{
 	@ResponseBody
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public void login(HttpServletRequest request, HttpServletResponse response){
-		String username=request.getParameter("username").toString();
-		String password=request.getParameter("password").toString();
-		UserInfoPojo userinfo= userService.Login(username, password);
+		Object username=request.getParameter("username");
+		Object password=request.getParameter("password");
+		if(username==null||password==null){
+			RenderData result=new RenderData("登录异常！");
+			WriteErrorJson(response,result);
+			return;
+		}
+		UserInfoPojo userinfo= userService.Login(username.toString(), password.toString());
 		if(userinfo!=null){
 			request.getSession().setMaxInactiveInterval(900);
 			request.getSession().setAttribute("user", userinfo);
