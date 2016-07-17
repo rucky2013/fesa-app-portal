@@ -2,15 +2,16 @@ package com.fs.app.portal.service.impl;
 
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import com.fs.app.portal.entity.RenderData;
-import com.fs.app.portal.pojo.UserCommentPojo;
-import com.fs.app.portal.pojo.UserReadPojo;
-import com.fs.app.portal.repository.IUserCommentRepository;
-import com.fs.app.portal.repository.IUserReadRepository;
-import com.fs.app.portal.service.INewsService;
+import org.springframework.stereotype.Service;
+import com.fs.commons.app.entity.RenderData;
+import com.fs.commons.app.pojo.UserCommentPojo;
+import com.fs.commons.app.pojo.UserReadPojo;
+import com.fs.commons.portal.repository.IUserCommentRepository;
+import com.fs.commons.portal.repository.IUserReadRepository;
+import com.fs.commons.portal.service.INewsService;
 
+@Service
 public class NewsService implements INewsService{
 
 	@Autowired

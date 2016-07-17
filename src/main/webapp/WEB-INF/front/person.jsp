@@ -1,5 +1,4 @@
-<%@page import="com.fs.app.portal.pojo.UserFeedPojo"%>
-<%@page import="com.fs.app.portal.pojo.BaseFeedPojo"%>
+<%@page import="com.fs.commons.app.pojo.BaseFeedPojo"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();

@@ -1,4 +1,4 @@
-package com.fs.app.portal.controller;
+package com.fs.app.portal.api.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import com.fs.app.portal.controller.BaseHandlers;
 import com.fs.commons.app.entity.RenderData;
 import com.fs.commons.portal.service.INewsService;
 
 @Controller
-@RequestMapping("/news")
-public class NewsHandlers extends BaseHandlers{
+@RequestMapping("/api/news")
+public class NewsApiHandlers extends BaseHandlers{
 
 	@Autowired
 	private INewsService newsService;

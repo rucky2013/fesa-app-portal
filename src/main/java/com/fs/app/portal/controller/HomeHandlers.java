@@ -9,8 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.fs.app.portal.entity.RenderData;
-import com.fs.app.portal.service.IUserService;
+
+import com.fs.commons.app.entity.RenderData;
+import com.fs.commons.portal.service.IUserService;
 
 @Controller
 public class HomeHandlers extends BaseHandlers{

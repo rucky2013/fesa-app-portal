@@ -9,8 +9,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.fs.app.portal.pojo.UserPasswordPojo;
-import com.fs.app.portal.repository.IUserPasswordRepository;
+import com.fs.commons.app.pojo.UserPasswordPojo;
+import com.fs.commons.portal.repository.IUserPasswordRepository;
 
 @Repository
 @Transactional

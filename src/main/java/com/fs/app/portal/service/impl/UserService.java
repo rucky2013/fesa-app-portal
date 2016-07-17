@@ -4,14 +4,14 @@ import java.util.Date;
 import javax.crypto.SecretKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.fs.app.portal.entity.RenderData;
-import com.fs.app.portal.pojo.UserInfoPojo;
-import com.fs.app.portal.pojo.UserPasswordPojo;
-import com.fs.app.portal.repository.IUserInfoRepository;
-import com.fs.app.portal.repository.IUserPasswordRepository;
-import com.fs.app.portal.service.IEmailService;
-import com.fs.app.portal.service.IUserService;
 import com.fs.app.portal.utils.encryptionAnddecryption;
+import com.fs.commons.app.entity.RenderData;
+import com.fs.commons.app.pojo.UserInfoPojo;
+import com.fs.commons.app.pojo.UserPasswordPojo;
+import com.fs.commons.portal.repository.IUserInfoRepository;
+import com.fs.commons.portal.repository.IUserPasswordRepository;
+import com.fs.commons.portal.service.IEmailService;
+import com.fs.commons.portal.service.IUserService;
 
 @Service
 public class UserService implements IUserService{

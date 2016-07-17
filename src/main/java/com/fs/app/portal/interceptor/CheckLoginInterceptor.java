@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
-import com.fs.app.portal.pojo.UserInfoPojo;
-import com.fs.app.portal.repository.IUserInfoRepository;
+import com.fs.commons.app.pojo.UserInfoPojo;
+import com.fs.commons.portal.repository.IUserInfoRepository;
 
 public class CheckLoginInterceptor extends BaseInterceptor {
 

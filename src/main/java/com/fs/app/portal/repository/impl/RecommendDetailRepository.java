@@ -1,16 +1,13 @@
 package com.fs.app.portal.repository.impl;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.fs.app.portal.pojo.RecommendDetailPojo;
-import com.fs.app.portal.repository.IRecommendDetailRepository;
+import com.fs.commons.app.pojo.RecommendDetailPojo;
+import com.fs.commons.portal.repository.IRecommendDetailRepository;
 
 @Repository
 @Transactional

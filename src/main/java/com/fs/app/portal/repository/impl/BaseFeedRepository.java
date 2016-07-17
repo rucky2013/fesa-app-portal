@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import com.fs.app.portal.pojo.BaseFeedPojo;
-import com.fs.app.portal.repository.IBaseFeedRepository;
+import com.fs.commons.app.pojo.BaseFeedPojo;
+import com.fs.commons.portal.repository.IBaseFeedRepository;
 
 @Repository
 @Transactional

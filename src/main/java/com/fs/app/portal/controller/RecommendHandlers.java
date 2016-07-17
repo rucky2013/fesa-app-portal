@@ -8,10 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.fs.app.portal.pojo.RecommendDetailPojo;
-import com.fs.app.portal.pojo.RecommendSpeciesPojo;
-import com.fs.app.portal.repository.IRecommendDetailRepository;
-import com.fs.app.portal.repository.IRecommendSpeciesRepository;
+import com.fs.commons.app.pojo.RecommendDetailPojo;
+import com.fs.commons.app.pojo.RecommendSpeciesPojo;
+import com.fs.commons.portal.repository.IRecommendDetailRepository;
+import com.fs.commons.portal.repository.IRecommendSpeciesRepository;
 
 @Controller
 @RequestMapping("/recommend")

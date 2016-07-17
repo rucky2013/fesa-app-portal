@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@page import="com.fs.app.portal.pojo.RecommendSpeciesPojo"%>
+<%@page import="com.fs.commons.app.pojo.RecommendSpeciesPojo"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"

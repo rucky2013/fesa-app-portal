@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.fs.app.portal.controller.BaseHandlers;
-import com.fs.app.portal.entity.RenderData;
-import com.fs.app.portal.pojo.UserInfoPojo;
-import com.fs.app.portal.service.IUserService;
+import com.fs.commons.app.entity.RenderData;
+import com.fs.commons.app.pojo.UserInfoPojo;
+import com.fs.commons.portal.service.IUserService;
 
 @Controller
 @RequestMapping("/api/users")

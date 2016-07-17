@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.fs</groupId>
 	<artifactId>fesa-app-portal</artifactId>
-	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>fesa-app-portal Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -215,6 +214,11 @@
 			<version>3.5.6-Final</version>
 		</dependency>
 		-->
+		<dependency>
+			<groupId>com.fs</groupId>
+			<artifactId>fesa-commons-app</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>fesa-app-portal</finalName>
@@ -241,4 +245,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<packaging>war</packaging>
 </project>

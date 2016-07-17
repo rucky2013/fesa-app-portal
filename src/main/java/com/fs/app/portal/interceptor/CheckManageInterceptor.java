@@ -4,7 +4,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
-import com.fs.app.portal.pojo.UserInfoPojo;
+
+import com.fs.commons.app.pojo.UserInfoPojo;
 
 public class CheckManageInterceptor extends BaseInterceptor {
 
