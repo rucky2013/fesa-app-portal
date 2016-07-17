@@ -18,7 +18,7 @@ public class UserCommentRepository implements IUserCommentRepository {
 	@Override
 	public Boolean updateUserComment(UserCommentPojo usercomment) {
 		try {
-			sessionFactory.getCurrentSession().update(usercomment);
+			sessionFactory.getCurrentSession().saveOrUpdate(usercomment);
 			return true;
 		} catch (Exception ex) {
 			System.out.println(ex.toString());

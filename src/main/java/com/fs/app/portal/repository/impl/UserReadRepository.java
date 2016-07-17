@@ -18,7 +18,7 @@ public class UserReadRepository implements IUserReadRepository {
 	@Override
 	public Boolean updateUserRead(UserReadPojo userred) {
 		try {
-			sessionFactory.getCurrentSession().update(userred);
+			sessionFactory.getCurrentSession().saveOrUpdate(userred);
             return true;
 		} catch (Exception ex) {
 			System.out.println(ex.toString());
