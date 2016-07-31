@@ -31,9 +31,9 @@
 				</div>
 			</div>
 			<div class="col-md-2" style="padding:8px">
-				<img class="qr" src="/portal/images/fs二维码.png" alt="微信公众平台" style="width:95px">
+				<img class="qr" src="/portal/images/fs-code.png" alt="微信公众平台" style="width:95px">
 				<div>扫码关注微信公众平台</div>
-				<img class="qr" src="/portal/images/fs-m二维码.png" alt="微信公众平台" style="width:95px;margin-top:4px">
+				<img class="qr" src="/portal/images/fs-m-code.png" alt="微信公众平台" style="width:95px;margin-top:4px">
 				<div>移动端扫描下载</div>
 			</div>
 		</div>
