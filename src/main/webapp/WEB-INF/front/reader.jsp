@@ -71,16 +71,7 @@ code{
 				</button>
 				<a class="navbar-brand" href="main">FeSa</a>
 			</div>
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav navbar-center">
-					<li><a href="main">推荐</a></li>
-					<li><a href="person">我的订阅</a></li>
-					<li><a href="feedmanage">订阅中心</a></li>
-					<li class="active"><a href="reader">自定义</a></li>
-					<li><a href="download">下载</a></li>
-					<li><a href="about">关于</a></li>
-				</ul>
-			</div>
+			<jsp:include page="../templet/navbar.jsp"></jsp:include>
 		</div>
 	</div>
     <div class="row" style="height:60px;padding:15px">

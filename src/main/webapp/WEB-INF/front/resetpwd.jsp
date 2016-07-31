@@ -42,16 +42,7 @@
 				<a class="navbar-brand" href="main">FeSa</a>
 
 			</div>
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav navbar-center">
-					<li class="active"><a href="main">推荐</a></li>
-					<li><a href="person">我的订阅</a></li>
-					<li><a href="feedmanage">订阅中心</a></li>
-					<li><a href="reader">自定义</a></li>
-					<li><a href="download">下载</a></li>
-					<li><a href="about">关于</a></li>
-				</ul>
-			</div>
+			<jsp:include page="../templet/navbar.jsp"></jsp:include>
 		</div>
 	</div>
 	<div class="container">
@@ -74,17 +65,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="navbar navbar-default navbar-fixed-bottom"
-		style="background-color: gray;">
-		<style>
-.body {
-	padding-top: 70px
-}
-</style>
-		<div class="container" style="text-align: center; color: white">
-			<span>FeSa 版权所有 © 2006-2013 京公海网安备110108001536号 京ICP证110059号</span>
-		</div>
-	</div>
+	<jsp:include page="../templet/bottom.jsp"></jsp:include>
 </body>
 <script type="text/javascript">
 	function btnChange(mail, uid) {

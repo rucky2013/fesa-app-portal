@@ -88,6 +88,23 @@ body{
 					$("#nav_main").removeClass("navbar-fixed-top");
 				}
 			});
+			var locurl=window.location.href.split("/");
+			var loctxt=locurl[locurl.length-1];
+			if(loctxt=="main"){
+				$("#navi-l li a[href='main']").parent().addClass("active");
+			}else if(loctxt=="person"){
+				$("#navi-l li a[href='person']").parent().addClass("active");
+			}else if(loctxt=="feedmanage"){
+				$("#navi-l li a[href='feedmanage']").parent().addClass("active");
+			}else if(loctxt=="reader"){
+				$("#navi-l li a[href='reader']").parent().addClass("active");
+			}else if(loctxt=="download"){
+				$("#navi-l li a[href='download']").parent().addClass("active");
+			}else if(loctxt=="about"){
+				$("#navi-l li a[href='about']").parent().addClass("active");
+			}else{
+				$("#navi-l li").removeClass("active");
+			}
 		}
 		var u='<%=user_info%>';
 	    if(u!='null'){
