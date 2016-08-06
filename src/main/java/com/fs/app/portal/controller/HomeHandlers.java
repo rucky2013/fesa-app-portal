@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fs.app.portal.utils.ConfigUtils;
 import com.fs.commons.app.entity.RenderData;
 import com.fs.commons.portal.service.IUserService;
 
@@ -20,8 +21,10 @@ public class HomeHandlers extends BaseHandlers{
 	private IUserService userService;
 	
 	@RequestMapping(value="/main",method=RequestMethod.GET)
-	public String homepage(HttpServletRequest request, HttpServletResponse response){
-		return "/front/main";
+	public ModelAndView homepage(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView modview=new ModelAndView("/front/main");
+		modview.addObject("crawler", getConfigValue("fesa.app.crawler.url"));
+		return modview;
 	}
 	
 	@RequestMapping(value="/person",method=RequestMethod.GET)
@@ -50,9 +53,9 @@ public class HomeHandlers extends BaseHandlers{
 	}
 	
 	//站点相关
-	@RequestMapping(value="/feeddescription",method=RequestMethod.GET)
+	@RequestMapping(value="/newdetail",method=RequestMethod.GET)
 	public String feeddescription(HttpServletRequest request, HttpServletResponse response){
-		return "/front/feeddescription";
+		return "/front/newdetail";
 	}
 	
 	@RequestMapping(value="/feeddetail",method=RequestMethod.GET)

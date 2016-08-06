@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
+import com.fs.app.portal.utils.ConfigUtils;
 import com.fs.commons.app.entity.RenderData;
 
 public abstract class BaseHandlers {
@@ -58,5 +59,11 @@ public abstract class BaseHandlers {
 			}
 			return;
 		}
+	}
+	
+	public String getConfigValue(String key){
+		ConfigUtils config=new ConfigUtils();
+		String val=config.getConfig(key);
+		return val;
 	}
 }
