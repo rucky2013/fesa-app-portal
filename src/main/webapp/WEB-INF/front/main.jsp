@@ -50,59 +50,94 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="row" id="rec_children" style="padding: 15px"></div>
-		<div id="id_tj" class="row" style="margin-top: 10px">
-			<c:forEach var="article" items="${mostfile}" varStatus="status">
-				<div class="col-md-4" style="padding-left: 0px; padding-right: 0px">
-					<div class="well">
-						<h3>
-							<a
-								href="feeddescription?feedid=${article.feedId.id}&&detailid=${article.id}"
-								target="_blank" style="color: black;"> <c:out
-									value="${article.title}"></c:out>
-							</a>
-						</h3>
-						<p style="text-align: center;">
-							<img src="${myfn:getImageurl(article.description)}"
-								style="max-width: 293px" />
-						</p>
-						<span> <fmt:formatDate value="${article.publishedDate}"
-								pattern="yyyy.MM.dd HH:mm" />
-						</span> <span style="margin-left: 20px; font-weight: bolder;"> <a
-							href="javascript:" style="float: right;"
-							onclick="feeddetail('${article.feedId.id}')"> <c:out
-									value="${article.feedId.feedName}"></c:out>
-						</a>
-						</span>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
 		<div class="row">
-			<div class="col-md-12">
-				<a class="btn btn-default btn-lg" style="width: 100%"
-					href="javascript:scroll(0,0)">没有内容了(回到顶端)</a>
+			<div class="col-md-12" style="padding-left:0px;padding-right:0px">
+				<a class="btn btn-default btn-lg" style="width: 100%" href="javascript:getnew()">加载更多</a>
+			</div>
+		</div>
+		<div id="id_tj" class="row" style="margin-top: 10px"></div>
+		<div class="row">
+			<div class="col-md-12" style="padding-left:0px;padding-right:0px">
+				<a class="btn btn-default btn-lg" style="width: 100%" href="javascript:scroll(0,0)">没有内容了(回到顶端)</a>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="pid" value="0"  />
 	<input type="hidden" id="ptime" value="0"  />
+	<input type="hidden" id="nid" value="0"  />
+	<input type="hidden" id="ntime" value="0"  />
 	<input type="hidden" id="crawler" value="${crawler}" />
 	<jsp:include page="../templet/bottom.jsp"></jsp:include>
 	<script type="text/javascript">
+	var isloading=false;
+	var isgetting=false;
 	$(function() {
 		getmore();
 		$(window).scroll(function() {
 			if ($(this).scrollTop() > document.body.scrollHeight-920) {
-				getmore();
+				if(!isloading){
+					isloading=true;
+					getmore();
+				}
 			}
 		});
 	});
+	function getnew() {
+		if(!isgetting){
+			isgetting=true;
+			$.ajax({
+				type : 'get',
+				url : $("#crawler").val()+'news/getNewsDataForPage',
+				datatype : 'json',
+				data : {
+					pid:$("#nid").val(),
+					ptimestamp:$("#ntime").val(),
+					ptype:'loadnew'
+				},
+				success : function(datas) {
+					if (datas.datas.length>0) {
+						var items = datas.datas;
+						var strhtml = "";
+						var _time="";
+						var _id="";
+						$("#nid").val(datas.datas[0].id);
+						$("#ntime").val(datas.datas[0].timestamp);
+						$(items).each(function(i, item) {
+							_time=item.timestamp;
+							_id=item.id;
+							strhtml += '<div class="col-md-4" style="padding-left:0px;padding-right:0px">';
+							strhtml += '<div class="well">';
+							strhtml += '<h3>';
+							strhtml += '<a href="newdetail?newid='+ item.id+ '" target="_blank" style="color: black;">';
+							strhtml += item.title;
+							strhtml += '</a>';
+							strhtml += '</h3>';
+							strhtml += '<p style="text-align:center">';
+							strhtml += '<img src="'+ item.image+ '" style="max-width:293px" />';
+							strhtml += '</p>';
+							strhtml += '<span>';
+							strhtml += item.time;
+							strhtml += '</span>';
+							strhtml += '<span style="font-weight:normal;float:right;">';
+							strhtml += item.source;
+							strhtml += '</span>';
+							strhtml += '</div>';
+							strhtml += '</div>';
+						});
+						$('#id_tj').prepend(strhtml);
+						isgetting=false;
+					}
+				}
+			});	
+		}
+	}
 	function getmore() {
 		$.ajax({
 			type : 'get',
 			url : $("#crawler").val()+'news/getNewsDataForPage',
 			datatype : 'json',
 			data : {
+				pid:$("#pid").val(),
 				ptimestamp:$("#ptime").val(),
 				ptype:'loadmore'
 			},
@@ -111,8 +146,14 @@
 					var items = datas.datas;
 					var strhtml = "";
 					var _time="";
+					var _id="";
 					$(items).each(function(i, item) {
+						if($("#nid").val()==0||$("#ntime").val()==0){
+							$("#nid").val(item.id);
+							$("#ntime").val(item.timestamp);
+						}
 						_time=item.timestamp;
+						_id=item.id;
 						strhtml += '<div class="col-md-4" style="padding-left:0px;padding-right:0px">';
 						strhtml += '<div class="well">';
 						strhtml += '<h3>';
@@ -126,16 +167,16 @@
 						strhtml += '<span>';
 						strhtml += item.time;
 						strhtml += '</span>';
-						strhtml += '<span style="margin-left: 20px; font-weight: bolder;">';
-						strhtml += '<a href="feeddetail?feedtitle='+ item.source+'" style="float: right;">';
+						strhtml += '<span style="font-weight:normal;float:right;">';
 						strhtml += item.source;
-						strhtml += '</a>';
 						strhtml += '</span>';
 						strhtml += '</div>';
 						strhtml += '</div>';
 					});
 					$("#id_tj").append(strhtml);
 					$("#ptime").val(_time);
+					$("#pid").val(_id);
+					isloading=false;
 				}
 			}
 		});

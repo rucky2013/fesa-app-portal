@@ -73,48 +73,59 @@ font-family: Microsoft Yahei;
 			<div class="col-md-9">
 				<div id="contentinfos">
 					<div class="well">
-						<h3 style="text-align: center;">
-							<c:out value="${currentdetail.title}"></c:out>
-						</h3>
+						<h3 id="new_title" style="text-align: center;"></h3>
 						<hr style="height: 1px; border: none; border-top: 1px solid #555555;">
-						<span class="art-detail"> 
-					    <c:if test="${currentdetail.description!=null}">
-						   <p>${currentdetail.description}</p> 
-	                    </c:if>
-						<c:if test="${currentdetail.description==null&&currentdetail.content!=null}">
-				    	   <p>${currentdetail.content}</p> 
-						</c:if>
-						</span>
+						<span id="new_content" class="art-detail"></span>
 						<hr>
-						<span
-							style="margin-left: 20px"> <!-- <c:out value="${fed.publishedDate}"></c:out>  -->
-							<c:if test="${currentdetail.publishedDate==null}">
-							<fmt:formatDate value="${currentdetail.createDate}"
-								pattern="yyyy年MM月dd日 HH时mm分" />
-							</c:if>
-							<c:if test="${currentdetail.publishedDate!=null}">
-							<fmt:formatDate value="${currentdetail.publishedDate}"
-								pattern="yyyy年MM月dd日 HH时mm分" />
-							</c:if>
-						</span> <span style="margin-left: 20px; font-weight: bolder;"><a
-							href="${currentdetail.uri}" target="_blank">查看原文</a> </span>
+						<span id="new_time" style="margin-left: 20px"></span> 
+						<span style="margin-left: 20px; font-weight: bolder;">
+							<a id="new_url" href="" target="_blank">查看原文</a> 
+						</span>
+						<span id="new_site" style="float:right;font-weight:normal;"></span>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div style="padding-left:50px">
-					<img 
-						src="<%=basePath%>${currentfeed.feedPhoto}"
-						class="img-responsive img-rounded">
+				<div class="panel panel-info">
+					<div class="panel-heading">热门频道</div>
+					<div class="panel-body" style="padding: 0px"></div>
+					<ul class="list-group">
+						<c:forEach var="spec" items="${list_species}">
+							<li class="list-group-item" onclick="sect"><a
+								href="./feedmanage?chanel=${spec.id}">${spec.speciesName}</a></li>
+						</c:forEach>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 	<jsp:include page="../templet/bottom.jsp"></jsp:include>
+	<input type="hidden" id="crawler" value="${crawler}" />
+	<input type="hidden" id="newid" value="${newid}" />
 </body>
 <script type="text/javascript">
 	$(function() {
 		$("#rowinfo").css("min-height", "460px");
+		$.ajax({
+			type:'get',
+			url:$("#crawler").val()+'news/getNewsById',
+			datatype:'json',
+			data:{
+				pid:$("#newid").val()
+			},
+			success:function(datar){
+				if(datar.datas!=null){
+					var item=datar.datas;
+					$("#new_title").text(item.title);
+					$("#new_site").text(item.source);
+					$("#new_time").text(item.time);
+					$("#new_url").attr("href",item.url);
+					if(item.image!=""){
+						$("#new_content").html("<image src='"+item.image+"'>");
+					}
+				}
+			},error:function(datar){}
+		});
 	});
 </script>
 </html>

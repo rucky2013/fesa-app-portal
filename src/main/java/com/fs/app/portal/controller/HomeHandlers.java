@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.fs.app.portal.utils.ConfigUtils;
 import com.fs.commons.app.entity.RenderData;
 import com.fs.commons.portal.service.IUserService;
 
@@ -54,13 +52,12 @@ public class HomeHandlers extends BaseHandlers{
 	
 	//站点相关
 	@RequestMapping(value="/newdetail",method=RequestMethod.GET)
-	public String feeddescription(HttpServletRequest request, HttpServletResponse response){
-		return "/front/newdetail";
-	}
-	
-	@RequestMapping(value="/feeddetail",method=RequestMethod.GET)
-	public String feeddetail(HttpServletRequest request, HttpServletResponse response){
-		return "/front/feeddetail";
+	public ModelAndView feeddescription(HttpServletRequest request, HttpServletResponse response){
+		String newid=request.getParameter("newid");
+		ModelAndView modview=new ModelAndView("/front/newdetail");
+		modview.addObject("crawler", getConfigValue("fesa.app.crawler.url"));
+		modview.addObject("newid", newid);
+		return modview;
 	}
 	
 	//登陆相关
