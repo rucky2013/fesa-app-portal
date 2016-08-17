@@ -120,9 +120,8 @@ font-family: Microsoft Yahei;
 					$("#new_site").text(item.source);
 					$("#new_time").text(item.time);
 					$("#new_url").attr("href",item.url);
-					if(item.image!=""){
-						$("#new_content").html("<image src='"+item.image+"'>");
-					}
+					$("#new_content").html(item.context);
+					$("iframe").hide();
 				}
 			},error:function(datar){}
 		});
