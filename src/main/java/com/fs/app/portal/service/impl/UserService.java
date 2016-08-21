@@ -12,6 +12,7 @@ import com.fs.commons.portal.repository.IUserInfoRepository;
 import com.fs.commons.portal.repository.IUserPasswordRepository;
 import com.fs.commons.portal.service.IEmailService;
 import com.fs.commons.portal.service.IUserService;
+import com.fs.platform.commons.annotation.FeSaService;
 
 @Service
 public class UserService implements IUserService{
@@ -22,6 +23,8 @@ public class UserService implements IUserService{
 	private IEmailService emailService;
 	@Autowired
 	private IUserPasswordRepository userPasswordRepository;
+	@FeSaService
+	private ITestService testService;
 	
 	@Override
 	public UserInfoPojo Login(String uname, String pwd) {
